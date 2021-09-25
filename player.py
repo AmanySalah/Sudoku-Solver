@@ -53,7 +53,7 @@ class PlayerInteractions:
 
     def display_instructions(self, surface):
         sur_x, sur_y = 30, 600
-        instructions = ["- Use the  keyboard arrows to move among the cells.",
+        instructions = ["- Use the keyboard arrows to move among the cells.",
                         "- Press the spacebar ro clear the cell.",
                         "- Enter a number form you numeric keypad."]
         for inst in instructions:
