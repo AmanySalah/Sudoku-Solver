@@ -9,7 +9,7 @@ pygame.init()
 WHITE = (255, 255, 255)
 
 SURFACE_HEIGHT = 730
-SURFACE_WIDTH = 730
+SURFACE_WIDTH = 760
 SURFACE_SIZE = (SURFACE_WIDTH, SURFACE_HEIGHT)
 
 # Establishing the SURFACE & THE DEFAULT GRID
@@ -41,12 +41,12 @@ while game_on:
             finished = grid.update_grid_values(surface, current_x, current_y, value)
             grid.update_grid(surface, current_x, current_y)
             if finished:  # if the player finished the sudoku puzzle.
-                player.display_congrats(surface)
+                player.display_endgame(surface)
 
         elif event.type == pygame.MOUSEBUTTONDOWN:  # if the player clicks on the buttons.
             click = pygame.mouse.get_pos()
 
-            if 600 <= click[0] <= 710 and 390 <= click[1] <= 450:  # if the player clicked on the Solve button.
+            if 600 <= click[0] <= 750 and 270 <= click[1] <= 330:  # if the player clicked on the Solve button.
                 solver = SudokuSolver()
                 if solver.solve(grid, surface, 0, 0):
                     grid.update_grid(surface, current_x, current_y)
@@ -55,8 +55,15 @@ while game_on:
                 else:
                     player.display_endgame(surface, 0)
 
-            elif 600 <= click[0] <= 710 and 510 <= click[1] <= 570:  # if the player clicked on the Clear button.
+            elif 600 <= click[0] <= 750 and 390 <= click[1] <= 450:  # if the player clicked on the Clear button.
                 grid.clear_grid(surface)
+
+            elif 600 <= click[0] <= 750 and 510 <= click[1] <= 570:
+                surface.fill(WHITE)
+                grid = GridHandler()
+                grid.set_default_grid()
+                current_x, current_y = 4, 4
+                grid.update_grid(surface, current_x, current_y)
 
     pygame.display.flip()
     clock.tick(30)

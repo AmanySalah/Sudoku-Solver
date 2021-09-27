@@ -62,17 +62,24 @@ class PlayerInteractions:
             sur_y += 20
 
     def solve_button(self, surface):
-        sur_x, sur_y = 600, 390
+        sur_x, sur_y = 600, 270
 
-        pygame.draw.rect(surface, self.LIGHT_GRAY, pygame.Rect(sur_x, sur_y, 110, 60))
+        # pygame.draw.rect(surface, self.LIGHT_GRAY, pygame.Rect(sur_x, sur_y, 110, 60))
+        pygame.draw.rect(surface, self.LIGHT_GRAY, pygame.Rect(sur_x, sur_y, 150, 60))
         text = self.FONT_L.render("Solve", True, self.BLACK)
-        surface.blit(text, (sur_x+15, sur_y+15))
+        surface.blit(text, (sur_x+37, sur_y+15))
 
     def clear_button(self, surface):
-        sur_x, sur_y = 600, 510
-        pygame.draw.rect(surface, self.LIGHT_GRAY, pygame.Rect(sur_x, sur_y, 110, 60))
+        sur_x, sur_y = 600, 390
+        pygame.draw.rect(surface, self.LIGHT_GRAY, pygame.Rect(sur_x, sur_y, 150, 60))
         text = self.FONT_L.render("Clear", True, self.BLACK)
-        surface.blit(text, (sur_x+15, sur_y+15))
+        surface.blit(text, (sur_x+37, sur_y+15))
+
+    def new_game_button(self, surface):
+        sur_x, sur_y = 600, 510
+        pygame.draw.rect(surface, self.LIGHT_GRAY, pygame.Rect(sur_x, sur_y, 150, 60))
+        text = self.FONT_L.render("New Game", True, self.BLACK)
+        surface.blit(text, (sur_x + 15, sur_y + 15))
 
     def display_endgame(self, surface, choice):
         congrats = "Congratulations!!"
